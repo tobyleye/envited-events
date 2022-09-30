@@ -23,8 +23,17 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .app-container {
-    max-width: 1200px;
+  .container {
     margin: auto;
+  }
+
+  .app-container {
+    @apply w-full mx-auto;
+  }
+
+  @screen lg {
+    .app-container {
+      max-width: 80%;
+    }
   }
 }

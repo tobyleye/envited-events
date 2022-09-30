@@ -1,5 +1,5 @@
 .event-info-item {
-    @apply grid gap-4;
+    @apply grid gap-4 items-center;
     grid-template-columns: auto 1fr auto;
 }
 

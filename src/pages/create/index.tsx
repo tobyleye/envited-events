@@ -68,6 +68,7 @@ function FileInput({
           <span className="text-sm">click to upload</span>
           <input
             type="file"
+            accept="image/*"
             onChange={(e) => {
               let files = e.target.files;
 
@@ -106,7 +107,12 @@ export function CreateEvent() {
 
   const previewURL = useFilePreview(formData.photo);
 
-  console.log({ previewURL });
+  const updateFormData = (changes: Partial<event>) =>
+    setFormData({
+      ...formData,
+      ...changes,
+    });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setEvent(formData);
@@ -115,17 +121,14 @@ export function CreateEvent() {
 
   const handleFieldChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id: name, value } = e.target;
-    setFormData({
-      ...formData,
+    updateFormData({
       [name]: value,
     });
   };
 
   const handleLocationChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id: name, value } = e.target;
-    console.log({ name, value })
-    setFormData({
-      ...formData,
+    updateFormData({
       location: {
         ...formData.location,
         [name]: value,
@@ -134,8 +137,7 @@ export function CreateEvent() {
   };
 
   const handlePhotoChange = (file: File | null) => {
-    setFormData({
-      ...formData,
+    updateFormData({
       photo: file ?? null,
     });
   };
@@ -163,7 +165,7 @@ export function CreateEvent() {
 
           <div className="grid grid-cols-2 gap-2">
             <Field
-              type="date"
+              type="datetime-local"
               label="Start date"
               id="startDate"
               value={formData.startDate}
@@ -172,7 +174,7 @@ export function CreateEvent() {
             />
 
             <Field
-              type="date"
+              type="datetime-local"
               label="End Date"
               id="endDate"
               value={formData.endDate}

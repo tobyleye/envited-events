@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 
-export function useFilePreview(file: File | null) {
+export function useFilePreview(file?: File | null) {
   const previewURL = useMemo(
     () => (file ? URL.createObjectURL(file) : null),
     [file]

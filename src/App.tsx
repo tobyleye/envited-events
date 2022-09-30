@@ -6,7 +6,7 @@ import { EventContextProvider } from "./store";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="container">
       <BrowserRouter>
         <EventContextProvider>
           <Switch>
