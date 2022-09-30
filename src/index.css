@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  body {
+    @apply bg-purple-3 text-base leading-normal text-purple-dark;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+
+  .purple-gradient {
+    background: linear-gradient(90deg, #8456EC 24.2%, #E87BF8 120.46%);
+  }  
+
+  .text-purple-gradient {
+    background: linear-gradient(90deg, #8456EC 24.2%, #E87BF8 120.46%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .app-container {
+    max-width: 1200px;
+    margin: auto;
+  }
 }
