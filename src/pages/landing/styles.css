@@ -1,0 +1,33 @@
+.sliding-text {
+    overflow: hidden;
+}
+
+.sliding-text span {
+    display: inline-block;
+    animation: slideIn .35s ease;
+    animation-fill-mode: both;
+}
+
+.landing_fade {
+    animation: fade 1.2s ease;
+    animation-delay: .4s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade {
+    from{ opacity: 0;}
+    to { opacity: 1;}
+}
